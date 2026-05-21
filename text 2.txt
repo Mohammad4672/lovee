@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RUBA | Lawyer Edition ⚖️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+font-family:'Cairo',sans-serif;
+background:
+linear-gradient(rgba(10,10,10,.78),rgba(10,10,10,.88)),
+url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1974&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+color:#f5e6c8;
+}
+
+.bg-lines{
+position:absolute;
+width:100%;
+height:100%;
+overflow:hidden;
+}
+
+.line{
+position:absolute;
+width:1px;
+height:100%;
+background:rgba(255,215,140,.06);
+animation: move 8s linear infinite;
+}
+
+@keyframes move{
+0%{transform:translateY(-100%);}
+100%{transform:translateY(100%);}
+}
+
+.container{
+position:relative;
+width:90%;
+max-width:430px;
+padding:35px 28px;
+border-radius:28px;
+background:rgba(18,18,18,.72);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,215,140,.18);
+box-shadow:
+0 0 40px rgba(0,0,0,.7),
+0 0 20px rgba(255,215,140,.12);
+text-align:center;
+animation: show 1.2s ease;
+}
+
+@keyframes show{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.logo{
+font-size:50px;
+margin-bottom:10px;
+}
+
+.title{
+font-family:'Cinzel',serif;
+font-size:34px;
+letter-spacing:4px;
+margin-bottom:5px;
+color:#f9deb0;
+}
+
+.sub{
+font-size:14px;
+opacity:.7;
+margin-bottom:28px;
+}
+
+.quote{
+padding:22px;
+border-radius:22px;
+background:rgba(255,255,255,.03);
+border:1px solid rgba(255,215,140,.08);
+line-height:2;
+font-size:18px;
+margin-bottom:25px;
+}
+
+.btn{
+padding:14px 30px;
+border:none;
+border-radius:50px;
+cursor:pointer;
+font-size:15px;
+font-weight:bold;
+background:linear-gradient(45deg,#d4a762,#f6d28b);
+color:#111;
+transition:.3s;
+box-shadow:0 0 20px rgba(255,215,140,.18);
+}
+
+.btn:hover{
+transform:scale(1.06);
+}
+
+.secret{
+display:none;
+margin-top:22px;
+padding:20px;
+border-radius:20px;
+background:rgba(255,215,140,.06);
+border:1px solid rgba(255,215,140,.12);
+line-height:2;
+animation: fade .8s ease;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:scale(.9);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+input{
+width:100%;
+padding:13px;
+margin-top:18px;
+border:none;
+outline:none;
+border-radius:15px;
+background:rgba(255,255,255,.08);
+color:white;
+text-align:center;
+font-size:15px;
+}
+
+.footer{
+margin-top:25px;
+font-size:12px;
+opacity:.5;
+letter-spacing:2px;
+}
+
+.gavel{
+position:absolute;
+bottom:-40px;
+right:-20px;
+font-size:120px;
+opacity:.05;
+transform:rotate(-20deg);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg-lines"></div>
+
+<div class="container">
+
+<div class="gavel">⚖️</div>
+
+<div class="logo">👩🏻‍⚖️</div>
+
+<div class="title">
+RUBA
+</div>
+
+<div class="sub">
+Future Lawyer • Elegant Mind • Strong Soul
+</div>
+
+<div class="quote">
+مو كل القوانين بتنكتب بالكتب...  
+في قوانين بتنخلق من هيبة الشخص نفسه ✨
+
+وإنتِ عندك هيبة  
+تخلي أي حدا يحترمك قبل حتى ما تحكي ⚖️
+</div>
+
+<button class="btn" onclick="openSecret()">
+فتح الملف السري 📂
+</button>
+
+<input type="password" id="pass" placeholder="أدخلي كلمة السر">
+
+<div class="secret" id="secret">
+الحكم النهائي بالقضية؟ 🤍
+
+تم إثبات إنو  
+Ruba أخطر بنت ممكن تخطف قلب حدا  
+بدون أي مقاومة 💫
+</div>
+
+<div class="footer">
+CONFIDENTIAL CASE • RUBA LAW FIRM
+</div>
+
+</div>
+
+<audio autoplay loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+function openSecret(){
+
+let pass=document.getElementById("pass").value;
+
+if(pass==="Ruba"){
+document.getElementById("secret").style.display="block";
+}else{
+alert("Access Denied ⚖️");
+}
+
+}
+
+for(let i=0;i<25;i++){
+
+let line=document.createElement("div");
+
+line.className="line";
+
+line.style.left=Math.random()*100+"%";
+line.style.animationDuration=(Math.random()*6+4)+"s";
+line.style.opacity=Math.random()*.2;
+
+document.querySelector(".bg-lines").appendChild(line);
+
+}
+
+</script>
+
+</body>
+</html>
